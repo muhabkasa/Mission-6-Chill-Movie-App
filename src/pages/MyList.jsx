@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; 
 import { Link } from 'react-router-dom';
 import '../styles/home.css';
 import MovieCard from '../components/MovieCard';
@@ -12,34 +12,7 @@ import starIcon from '../assets/images/Vector/star-vector.png';
 import logoutIcon from '../assets/images/Vector/login-vector.png';
 import arrowRight from '../assets/images/Vector/arrow-right.png';
 
-import allOfUs from '../assets/images/Poster/all-of-us-are-dead.png';
-import bigHero from '../assets/images/Poster/bighero6.png';
-import suzume from '../assets/images/Poster/callmebyyourname.png';
-import guardian from '../assets/images/Poster/guardians-of-the-galaxy-vol-3.png';
-import blueLock from '../assets/images/Poster/blue-lock.png';
-import dutyPoster2 from '../assets/images/Poster/duty-after-school2.png';
-import spider from '../assets/images/Poster/spider-ver.png';
-import sonic from '../assets/images/Poster/sonic.png';
-import megan from '../assets/images/Poster/megan-ver.png';
-import missing from '../assets/images/Poster/missing.png';
-import alice from '../assets/images/Poster/alice-ver.png';
-import otto2 from '../assets/images/Poster/a-man-called-otto-ver.png';
-
-const MyList = () => {
-  const myListData = [
-    { img: allOfUs, title: "All of Us Are Dead", badge: "Top 10" },
-    { img: bigHero, title: "Big Hero 6" },
-    { img: suzume, title: "Suzume", badge: "Episode Baru" },
-    { img: guardian, title: "Guardians Vol. 3", badge: "Top 10" },
-    { img: blueLock, title: "Blue Lock", badge: "Episode Baru" },
-    { img: dutyPoster2, title: "Duty After School" },
-    { img: spider, title: "Spider-Man", badge: "Top 10" },
-    { img: sonic, title: "Sonic 2" },
-    { img: megan, title: "Megan" },
-    { img: missing, title: "Missing" },
-    { img: alice, title: "Alice in Borderland", badge: "Episode Baru" },
-    { img: otto2, title: "A Man Called Otto"},
-  ];
+const MyList = ({ myList, onRemove }) => { 
 
   return (
     <div className="home-wrapper">
@@ -87,16 +60,22 @@ const MyList = () => {
             <section className="movie-section">
                 <h2 className="section-title">Daftar Saya</h2>
                 
-                <div className="movie-grid">
-                    {myListData.map((item, index) => (
-                        <MovieCard 
-                            key={index}
-                            image={item.img} 
-                            title={item.title} 
-                            badge={item.badge}
-                        />
-                    ))}
-                </div>
+                {myList.length === 0 ? (
+                    <p style={{ color: '#aaa', marginTop: '20px' }}>Belum ada film di Daftar Saya. Ayo tambahkan dari beranda!</p>
+                ) : (
+                    <div className="movie-grid">
+                        {myList.map((item, index) => (
+                            <MovieCard 
+                                key={index}
+                                image={item.image} 
+                                title={item.title} 
+                                badge={item.badge}
+                                isMyList={true}
+                                onRemove={() => onRemove(item.title)}
+                            />
+                        ))}
+                    </div>
+                )}
             </section>
 
             <footer className="main-footer">

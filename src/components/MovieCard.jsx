@@ -1,10 +1,9 @@
 import React from 'react';
 import arrowDown from '../assets/images/Vector/arrow-down.png';
 
-const MovieCard = ({ image, title, variant, rating, badge }) => {
+const MovieCard = ({ image, title, variant, rating, badge, onAdd, onRemove, isMyList }) => {
   return (
     <div className={`movie-card ${variant || ''}`}>
-      
       {badge === 'Top 10' && <div className="top-10-badge">Top 10</div>}
       {badge === 'Episode Baru' && <div className="badge-episode">Episode Baru</div>}
 
@@ -19,7 +18,17 @@ const MovieCard = ({ image, title, variant, rating, badge }) => {
         <div className="hover-actions">
           <div className="left-actions">
             <button className="btn-icon-play">▶</button>
-            <button className="btn-icon-add">✔</button>
+            
+            {isMyList ? (
+              <button className="btn-icon-add" onClick={onRemove} style={{ color: '#E71414', borderColor: '#E71414' }}>
+                ✖
+              </button>
+            ) : (
+              <button className="btn-icon-add" onClick={onAdd}>
+                ✔
+              </button>
+            )}
+
           </div>
           <button className="btn-icon-more">
             <img src={arrowDown} alt="More" style={{ width: '15px', height: 'auto', filter: 'brightness(0) invert(1)' }} />

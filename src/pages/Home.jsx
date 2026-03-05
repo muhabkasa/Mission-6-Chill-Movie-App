@@ -35,7 +35,8 @@ import alice from '../assets/images/Poster/alice-ver.png';
 import megan from '../assets/images/Poster/megan-ver.png';
 import spider from '../assets/images/Poster/spider-ver.png';
 
-const Home = () => {
+// Terima onAdd dari App.jsx
+const Home = ({ onAdd }) => {
   return (
     <div className="home-wrapper">
         
@@ -105,47 +106,47 @@ const Home = () => {
             <section className="movie-section">
                 <h2 className="section-title">Melanjutkan Tonton Film</h2>
                 <div className="movie-scroll">
-                    <MovieCard image={dontLookUp} title="Don't Look Up" variant="card-landscape" rating="★ 4.5/5" />
-                    <MovieCard image={allOfUs} title="All of Us Are Dead" variant="card-landscape" rating="★ 4.0/5" />
-                    <MovieCard image={blueLock} title="Blue Lock" variant="card-landscape" rating="★ 4.8/5" />
-                    <MovieCard image={otto} title="A Man Called Otto" variant="card-landscape" rating="★ 4.4/5" />
-                    <MovieCard image={avatar2} title="Avatar: Way of Water" variant="card-landscape" rating="★ 4.9/5" />
+                    <MovieCard image={dontLookUp} title="Don't Look Up" variant="card-landscape" rating="★ 4.5/5" onAdd={() => onAdd({ image: dontLookUp, title: "Don't Look Up", variant: "card-landscape", rating: "★ 4.5/5" })} />
+                    <MovieCard image={allOfUs} title="All of Us Are Dead" variant="card-landscape" rating="★ 4.0/5" onAdd={() => onAdd({ image: allOfUs, title: "All of Us Are Dead", variant: "card-landscape", rating: "★ 4.0/5" })} />
+                    <MovieCard image={blueLock} title="Blue Lock" variant="card-landscape" rating="★ 4.8/5" onAdd={() => onAdd({ image: blueLock, title: "Blue Lock", variant: "card-landscape", rating: "★ 4.8/5" })} />
+                    <MovieCard image={otto} title="A Man Called Otto" variant="card-landscape" rating="★ 4.4/5" onAdd={() => onAdd({ image: otto, title: "A Man Called Otto", variant: "card-landscape", rating: "★ 4.4/5" })} />
+                    <MovieCard image={avatar2} title="Avatar: Way of Water" variant="card-landscape" rating="★ 4.9/5" onAdd={() => onAdd({ image: avatar2, title: "Avatar: Way of Water", variant: "card-landscape", rating: "★ 4.9/5" })} />
                 </div>
             </section>
 
             <section className="movie-section">
                 <h2 className="section-title">Top Rating Film dan Series Hari ini</h2>
                 <div className="movie-scroll">
-                    <MovieCard image={suzume} title="Suzume" badge="Episode Baru" />
-                    <MovieCard image={jurassic} title="Jurassic World" />
-                    <MovieCard image={sonic} title="Sonic 2" />
-                    <MovieCard image={allOfUs} title="All Of Us Are Dead" />
-                    <MovieCard image={bigHero} title="Big Hero 6" />
-                    <MovieCard image={alice} title="Alice in Borderland" badge="Episode Baru" />
+                    <MovieCard image={suzume} title="Suzume" badge="Episode Baru" onAdd={() => onAdd({ image: suzume, title: "Suzume", badge: "Episode Baru" })} />
+                    <MovieCard image={jurassic} title="Jurassic World" onAdd={() => onAdd({ image: jurassic, title: "Jurassic World" })} />
+                    <MovieCard image={sonic} title="Sonic 2" onAdd={() => onAdd({ image: sonic, title: "Sonic 2" })} />
+                    <MovieCard image={allOfUs} title="All Of Us Are Dead" onAdd={() => onAdd({ image: allOfUs, title: "All Of Us Are Dead" })} />
+                    <MovieCard image={bigHero} title="Big Hero 6" onAdd={() => onAdd({ image: bigHero, title: "Big Hero 6" })} />
+                    <MovieCard image={alice} title="Alice in Borderland" badge="Episode Baru" onAdd={() => onAdd({ image: alice, title: "Alice in Borderland", badge: "Episode Baru" })} />
                 </div>
             </section>
             
             <section className="movie-section">
                 <h2 className="section-title">Film Trending</h2>
                 <div className="movie-scroll">
-                    <MovieCard image={tomorrow} title="The Tomorrow War" variant="trending-card" badge="Top 10" />
-                    <MovieCard image={antMan} title="Ant-Man Quantumania" variant="trending-card" badge="Top 10" />
-                    <MovieCard image={guardian} title="Guardians Vol. 3" variant="trending-card" badge="Top 10" />
-                    <MovieCard image={ottov} title="A Man Called Otto" variant="trending-card" badge="Top 10" />
-                    <MovieCard image={mermaid} title="Little Mermaid" variant="trending-card" badge="Top 10" />
-                    <MovieCard image={spider} title="Spider-Man" variant="trending-card" badge="Top 10" />
+                    <MovieCard image={tomorrow} title="The Tomorrow War" variant="trending-card" badge="Top 10" onAdd={() => onAdd({ image: tomorrow, title: "The Tomorrow War", variant: "trending-card", badge: "Top 10" })} />
+                    <MovieCard image={antMan} title="Ant-Man Quantumania" variant="trending-card" badge="Top 10" onAdd={() => onAdd({ image: antMan, title: "Ant-Man Quantumania", variant: "trending-card", badge: "Top 10" })} />
+                    <MovieCard image={guardian} title="Guardians Vol. 3" variant="trending-card" badge="Top 10" onAdd={() => onAdd({ image: guardian, title: "Guardians Vol. 3", variant: "trending-card", badge: "Top 10" })} />
+                    <MovieCard image={ottov} title="A Man Called Otto" variant="trending-card" badge="Top 10" onAdd={() => onAdd({ image: ottov, title: "A Man Called Otto", variant: "trending-card", badge: "Top 10" })} />
+                    <MovieCard image={mermaid} title="Little Mermaid" variant="trending-card" badge="Top 10" onAdd={() => onAdd({ image: mermaid, title: "Little Mermaid", variant: "trending-card", badge: "Top 10" })} />
+                    <MovieCard image={spider} title="Spider-Man" variant="trending-card" badge="Top 10" onAdd={() => onAdd({ image: spider, title: "Spider-Man", variant: "trending-card", badge: "Top 10" })} />
                 </div>
             </section>
 
             <section className="movie-section">
                 <h2 className="section-title">Rilis Baru</h2>
                 <div className="movie-scroll">
-                    <MovieCard image={mermaid} title="Little Mermaid" variant="trending-card" badge="Top 10" />
-                    <MovieCard image={dutyPoster2} title="Duty After School" variant="trending-card" badge="Episode Baru" />
-                    <MovieCard image={bigHero} title="Big Hero 6" variant="trending-card" badge="Top 10" />
-                    <MovieCard image={allOfUs2} title="All Of Us S2" variant="trending-card" badge="Episode Baru" />
-                    <MovieCard image={missing} title="Missing" variant="trending-card" />
-                    <MovieCard image={megan} title="Megan" variant="trending-card" />
+                    <MovieCard image={mermaid} title="Little Mermaid" variant="trending-card" badge="Top 10" onAdd={() => onAdd({ image: mermaid, title: "Little Mermaid", variant: "trending-card", badge: "Top 10" })} />
+                    <MovieCard image={dutyPoster2} title="Duty After School" variant="trending-card" badge="Episode Baru" onAdd={() => onAdd({ image: dutyPoster2, title: "Duty After School", variant: "trending-card", badge: "Episode Baru" })} />
+                    <MovieCard image={bigHero} title="Big Hero 6" variant="trending-card" badge="Top 10" onAdd={() => onAdd({ image: bigHero, title: "Big Hero 6", variant: "trending-card", badge: "Top 10" })} />
+                    <MovieCard image={allOfUs2} title="All Of Us S2" variant="trending-card" badge="Episode Baru" onAdd={() => onAdd({ image: allOfUs2, title: "All Of Us S2", variant: "trending-card", badge: "Episode Baru" })} />
+                    <MovieCard image={missing} title="Missing" variant="trending-card" onAdd={() => onAdd({ image: missing, title: "Missing", variant: "trending-card" })} />
+                    <MovieCard image={megan} title="Megan" variant="trending-card" onAdd={() => onAdd({ image: megan, title: "Megan", variant: "trending-card" })} />
                 </div>
              </section>
 
