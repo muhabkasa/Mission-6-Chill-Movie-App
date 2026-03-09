@@ -4,3 +4,6 @@ Aplikasi ini sekarang sudah dinamis menggunakan `useState` dan `localStorage`:
 * **Read**: Menampilkan daftar film yang tersimpan secara dinamis, dan data tidak hilang saat halaman di-refresh.
 * **Update**: Mengubah judul daftar film yang tersimpan pada MyList/Daftar Saya.
 * **Delete**: Menghapus film dari "Daftar Saya" dengan menekan ikon (✖).
+
+## Vercel Link
+url : https://mission6-sigma.vercel.app/
