@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import arrowDown from '../assets/images/Vector/arrow-down.png';
 
-const MovieCard = ({ image, title, variant, rating, badge, onAdd, onRemove, isMyList }) => {
+const MovieCard = ({ image, title, variant, rating, badge, onAdd, onRemove, isMyList, onEdit }) => {
   return (
     <div className={`movie-card ${variant || ''}`}>
       {badge === 'Top 10' && <div className="top-10-badge">Top 10</div>}
@@ -20,9 +21,14 @@ const MovieCard = ({ image, title, variant, rating, badge, onAdd, onRemove, isMy
             <button className="btn-icon-play">▶</button>
             
             {isMyList ? (
-              <button className="btn-icon-add" onClick={onRemove} style={{ color: '#E71414', borderColor: '#E71414' }}>
-                ✖
-              </button>
+              <>
+                <button className="btn-icon-add" onClick={onEdit} style={{ color: '#F39C12', borderColor: '#F39C12', marginRight: '8px' }}>
+                  ✏️
+                </button>
+                <button className="btn-icon-add" onClick={onRemove} style={{ color: '#E71414', borderColor: '#E71414' }}>
+                  ✖
+                </button>
+              </>
             ) : (
               <button className="btn-icon-add" onClick={onAdd}>
                 ✔
@@ -48,9 +54,20 @@ const MovieCard = ({ image, title, variant, rating, badge, onAdd, onRemove, isMy
           <span>Fantasi</span>
         </div>
       </div>
-
     </div>
   );
+};
+
+MovieCard.propTypes = {
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  variant: PropTypes.string,
+  rating: PropTypes.string,
+  badge: PropTypes.string,
+  onAdd: PropTypes.func,
+  onRemove: PropTypes.func,
+  isMyList: PropTypes.bool,
+  onEdit: PropTypes.func,
 };
 
 export default MovieCard;

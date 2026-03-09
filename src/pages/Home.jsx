@@ -35,7 +35,6 @@ import alice from '../assets/images/Poster/alice-ver.png';
 import megan from '../assets/images/Poster/megan-ver.png';
 import spider from '../assets/images/Poster/spider-ver.png';
 
-// Terima onAdd dari App.jsx
 const Home = ({ onAdd }) => {
   return (
     <div className="home-wrapper">

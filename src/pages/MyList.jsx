@@ -1,5 +1,6 @@
 import React from 'react'; 
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import '../styles/home.css';
 import MovieCard from '../components/MovieCard';
 
@@ -12,7 +13,7 @@ import starIcon from '../assets/images/Vector/star-vector.png';
 import logoutIcon from '../assets/images/Vector/login-vector.png';
 import arrowRight from '../assets/images/Vector/arrow-right.png';
 
-const MyList = ({ myList, onRemove }) => { 
+const MyList = ({ myList, onRemove, onEdit }) => { 
 
   return (
     <div className="home-wrapper">
@@ -64,14 +65,20 @@ const MyList = ({ myList, onRemove }) => {
                     <p style={{ color: '#aaa', marginTop: '20px' }}>Belum ada film di Daftar Saya. Ayo tambahkan dari beranda!</p>
                 ) : (
                     <div className="movie-grid">
-                        {myList.map((item, index) => (
+                        {myList.map((item) => (
                             <MovieCard 
-                                key={index}
+                                key={item.title}
                                 image={item.image} 
                                 title={item.title} 
                                 badge={item.badge}
                                 isMyList={true}
                                 onRemove={() => onRemove(item.title)}
+                                onEdit={() => {
+                                    const newTitle = prompt("Edit judul film:", item.title);
+                                    if (newTitle && newTitle.trim() !== "") {
+                                        onEdit(item.title, newTitle);
+                                    }
+                                }}
                             />
                         ))}
                     </div>
@@ -130,6 +137,12 @@ const MyList = ({ myList, onRemove }) => {
         </main>
     </div>
   );
+};
+
+MyList.propTypes = {
+  myList: PropTypes.array.isRequired,
+  onRemove: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired,
 };
 
 export default MyList;

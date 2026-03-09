@@ -12,7 +12,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Login diklik!");
-    navigate('/home'); // Nanti kita buat halaman home
+    navigate('/home');
   };
 
   return (

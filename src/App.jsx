@@ -11,7 +11,7 @@ function App() {
     if (savedList) {
       return JSON.parse(savedList);
     } else {
-      return [];
+      return []; 
     }
   });
 
@@ -34,13 +34,23 @@ function App() {
     setMyList(updatedList);
   };
 
+  const handleEditList = (oldTitle, newTitle) => {
+    const updatedList = myList.map((item) => {
+      if (item.title === oldTitle) {
+        return { ...item, title: newTitle };
+      }
+      return item;
+    });
+    setMyList(updatedList);
+  };
+
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home onAdd={handleAddToList} />} />
-        <Route path="/mylist" element={<MyList myList={myList} onRemove={handleRemoveFromList} />} />
+        <Route path="/mylist" element={<MyList myList={myList} onRemove={handleRemoveFromList} onEdit={handleEditList} />} />
       </Routes>
     </Router>
   );
